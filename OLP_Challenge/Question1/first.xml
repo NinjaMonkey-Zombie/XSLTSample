@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<packet>
+<customer>
+	<type>WEEKLY</type>
+	<type>MONTHLY</type>
+	<type></type>
+</customer>
+<customer>
+	<type>null</type>
+	<type>MONTHLY</type>
+	<type>WEEKLY</type>
+</customer>
+<customer>
+	<type>NULL</type>
+	<type>WEEKLY</type>
+	<type>MONTHLY</type>
+</customer>
+</packet>

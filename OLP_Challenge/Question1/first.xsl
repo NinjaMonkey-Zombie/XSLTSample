@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:func="http://exslt.org/functions" xmlns:str="http://exslt.org/strings" extension-element-prefixes="func str">
+
+<xsl:output method="xml" indent="yes"/>
+
+<func:function name="func:parser">
+
+		<xsl:variable name="Type">
+			<xsl:choose>
+				<xsl:when test=". = 'WEEKLY'">W</xsl:when>
+				<xsl:when test=". = 'MONTHLY'">M</xsl:when>
+				<xsl:otherwise>N</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+	
+	<func:result>
+		<xsl:value-of select="$Type"/>
+	</func:result>
+
+</func:function>
+
+<xsl:template match="@*|node()">
+	<xsl:for-each select="customer">
+	<xsl:for-each select="type">
+
+		<repeat><xsl:value-of select="func:parser()"/></repeat>
+				<xsl:text>&#10;</xsl:text>
+
+	</xsl:for-each>
+	</xsl:for-each>
+</xsl:template>
+
+
+
+</xsl:stylesheet>
